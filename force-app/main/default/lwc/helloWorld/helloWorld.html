@@ -12,8 +12,14 @@
 
       <!-- Default/basic -->
       <div class="slds-p-around_medium lgc-bg">
-          <lightning-input type="text" label="What are you trying to stay informed about? 🤓" onchange={captureData} required></lightning-input>
+          <lightning-input type="text" label="What are your keywords? 🤓" onchange={captureKeyword} required></lightning-input>
       </div>
+      <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="What language do you want the news on?" onchange={captureLanguage} required></lightning-input>
+    </div>
+    <div class="slds-p-around_medium lgc-bg">
+      <lightning-input type="text" label="How do you want them to be sorted?" onchange={captureSortingPreference} required></lightning-input>
+  </div>
   </div>
     <!-- Brand variant: Identifies the primary action in a group of buttons -->
     <lightning-button variant="brand" label="Search away! 🔎" title="Primary action" onclick={fetchInfo} class="slds-m-left_x-small"></lightning-button>

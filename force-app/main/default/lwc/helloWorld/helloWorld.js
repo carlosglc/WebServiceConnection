@@ -6,12 +6,22 @@ export default class HelloWorld extends LightningElement {
     @track selectedNews = {};
     @track isModalOpen = false;
 
-    datoBusqueda='';
+    keyword='';
+    lang='';
+    sortBy='';
     thereIsData=false;
 
-    captureData(event){
-        this.datoBusqueda=event.detail.value;
-        console.log(this.datoBusqueda);
+    captureKeyword(event){
+        this.keyword=event.detail.value;
+        console.log(this.keyword);
+    }
+
+    captureLanguage(event){
+        this.lang=event.detail.value;
+    }
+
+    captureSortingPreference(event){
+        this.sortBy=event.detail.value;
     }
 
     get modalClass(){
@@ -24,7 +34,7 @@ export default class HelloWorld extends LightningElement {
 
 
     fetchInfo(){
-        retrieveInfo({dato: this.datoBusqueda}).then(response=>{
+        retrieveInfo({keyword: this.keyword, lang: this.lang, sortBy: this.sortBy}).then(response=>{
             console.log(response);
             this.formatNewsData(response.articles)
         }).catch(error=>{

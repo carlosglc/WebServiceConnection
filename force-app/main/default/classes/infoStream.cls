@@ -1,10 +1,9 @@
 public with sharing class infoStream {
     @AuraEnabled
-    public static Map<String, Object> retrieveInfo(String dato){
-        System.debug(dato);
+    public static Map<String, Object> retrieveInfo(String keyword, String lang, String sortBy){
         HttpRequest httpRequest = new HttpRequest();
         
-        httpRequest.setEndPoint('https://newsapi.org/v2/everything?q='+dato+'&from=2022-09-02&sortBy=publishedAt&apiKey=98a2cc42097f45cba7f047786f53cfde');
+        httpRequest.setEndPoint('https://newsapi.org/v2/everything?q='+keyword+'&from=2022-09-02&sortBy='+sortBy+'&language='+lang+'&apiKey=98a2cc42097f45cba7f047786f53cfde');
         httpRequest.setMethod('GET');
 
         Map<String, Object> infoJsonData = new Map<String, Object>();
